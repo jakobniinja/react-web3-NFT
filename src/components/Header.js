@@ -23,7 +23,7 @@ function Header() {
           </div>
           <div className="headerActions">
             <div className="themeSwitchContainer">
-              <img  srC={themeSwitchIcon} alt="" />
+              <img  src={themeSwitchIcon} alt="" />
             </div>
           </div>
           <div className="loginButton">
