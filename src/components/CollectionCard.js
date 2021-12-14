@@ -6,7 +6,7 @@ const CollectionCard = ({ id, name, traits, image }) => {
   return (
     <div className="collectionCard">
       <img src={image} alt="" />
-      <div className="details"></div>
+      <div className="details">
       <div className="name">
         {name}
         <div className="id">#{id}</div>
@@ -17,7 +17,7 @@ const CollectionCard = ({ id, name, traits, image }) => {
               {traits[0]?.value}
           </div>
       </div>
-
+      </div>
     </div>
   );
 };
