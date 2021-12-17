@@ -5,63 +5,54 @@ import moreIcon from "../assets/owner/more.png"
 import "./Main.css"
 
 
-const Main = ({ selectedPunk,punkListData}) => {
-    const [activePunk, setactivePunk] = useState(punkListData[0])
+export const Main = ({ selectedPunk, punkListData }) => {
+	const [activePunk, setActivePunk] = useState(punkListData[0])
+	useEffect(() => {
+		setActivePunk(punkListData[selectedPunk])
+	}, [selectedPunk, punkListData])
 
-    useEffect(() => {
-       setactivePunk(punkListData[selectedPunk]) 
-    }, [punkListData, selectedPunk])
-  return (
-    <div className="main">
-      <div className="mainContent">
-        <div className="punkHighlight">
-          <div className="punkContainer">
-            <img
-              className="selectedPunk"
-              src={activePunk.image_original_url}
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="punkDetails" style={{color: "#fff"}} >
-            <div className="title">
-                {activePunk.name}
-            </div>
-            <span className="itemNumber">
+	return (
+		<div>
+			<div className='main'>
+				<div className='mainContent'>
+					<div className='punkHighlight'>
+						<div className='punkContainer'>
+							<img className='selectedPunk'
+								src={activePunk.image_original_url}
+							/>
+						</div>
+					</div>
+					<div class='punkDetails' style={{ color: '#fff' }}>
+						<div className='title'> {activePunk.name}
+							<span className='itemNumber'> #{activePunk.token_id}</span>
+						</div>
+						<div className='owner'>
+							<div className="ownerImageContainer">
+								<img src="https://lh3.googleusercontent.com/WCevQXnxgJbdeOqzWj0CxG6lNItajZvdZDNpuo5pezJqANejiY-5BU6AQPRwtPcrv7C7fi30-M2oOAo4krsmQBzJA8Zl2-UqlHjeaAc=w361" />
+							</div>
+							<div className='ownerDetails'>
+								<div className='ownerNameAndHandle'>
+									<div>{activePunk.owner.address}</div>
+									<div className='ownerHandle'>
+										@jakobniinja
+									</div>
+								</div>
 
-    {`#${activePunk.token_id}`}
-
-            </span>
-        </div>
-
-        <div className="owner">
-            <div className="ownerImageContainer" >
-                <img src="https://i.pinimg.com/236x/21/f5/55/21f5556f85817aed5d50f5a7e7787020.jpg" alt=""/>
-            </div>
-
-            <div className="ownerDetails">
-                <div className="ownerNameAndHandle">
-                    <div>0x0773Fc2b3849583dE0fbc9F6CF39c667785467E0</div>
-                    <div className="ownerHandle">
-                        @jakob yaro
-
-                    </div>
-                </div>
-                    <div className="ownerLink">
-                        <img src={instagramLogo} alt=""/>
-                    </div>
-
-                    <div className="ownerLink">
-                        <img src={twitterLogo} alt=""/>
-                    </div>
-                    <div className="ownerLink">
-                        <img src={moreIcon} alt=""/>
-                    </div>
-            </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
+								<div className="ownerLink">
+									<img src={instagramLogo} alt='' />
+								</div>
+								<div className="ownerLink">
+									<img src={twitterLogo} alt='' />
+								</div>
+								<div className="ownerLink">
+									<img src={moreIcon} alt='' />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	)
+}
 export default Main;
