@@ -66,6 +66,7 @@
 }
 
 .ownerImageContainer>img {
+        cursor: pointer;
     height: 100%;
     width: 100%;
 }
@@ -94,6 +95,7 @@
 }
 
 .ownerLink > img {
+    cursor: pointer;
 	height: 100%;
 	width: 100%;
 }
